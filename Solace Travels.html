@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Solace Travels – Wellness retreats</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1a22;--bg2:#0d222c;--line:rgba(255,255,255,.12);--tx:#fff;--mut:rgba(255,255,255,.55);--ac:#f5a02b;--pad:clamp(20px,2.5vw,48px);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1a22}}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font-family:Inter,system-ui,Arial,sans-serif;letter-spacing:-.02em;line-height:1.3;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-weight:600;letter-spacing:-.055em;line-height:.98}
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:20;height:84px;display:flex;justify-content:space-between;border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(10,26,34,.35);font-weight:500;font-size:15px}
+.logo{display:flex;align-items:center;gap:8px;padding:0 var(--pad);border-right:1px solid var(--line);font-size:22px;font-weight:600;letter-spacing:-.06em}
+.logo svg{width:24px;height:24px}
+.nav-r{display:flex;align-items:center}
+.nav-r a{padding:0 14px;transition:color .2s}.nav-r a:hover,.nav-r a.on{color:var(--ac)}
+.nav-r .ex{border-left:1px solid var(--line);height:100%;display:flex;align-items:center;padding:0 var(--pad);margin-left:20px}
+.burger{display:none}
+/* hero */
+.hero{height:100vh;min-height:620px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding-bottom:9vh;
+background:linear-gradient(180deg,rgba(10,40,60,.1),rgba(0,0,0,.25)),
+radial-gradient(60% 18% at 50% 74%,#c98424 0,transparent 70%),
+linear-gradient(180deg,#2c7aa0 0,#5e98b3 22%,#dfe9ef 28%,#6c7480 34%,#8a5a22 48%,#6a3f12 62%,#b87a24 78%,#8a5518 100%)}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(30,18,6,.55) 60%,transparent 90%)}
+.hero>*{position:relative}
+.hero h1{font-size:clamp(110px,19vw,300px);letter-spacing:-.07em;margin-bottom:10px}
+.hero p{font-size:clamp(20px,2.3vw,34px);font-weight:500;max-width:760px;letter-spacing:-.05em;line-height:1.15}
+.pill{display:inline-flex;align-items:center;gap:22px;background:#fff;color:#0a1a22;border-radius:99px;padding:22px 36px;font-weight:500;margin-top:28px;transition:transform .25s}
+.pill:hover{transform:scale(1.05)}
+.sq{width:9px;height:9px;background:currentColor;display:inline-block;transform:rotate(45deg)}
+/* sections */
+.sec{border-top:1px solid var(--line)}
+.head{display:grid;grid-template-columns:minmax(120px,22%) 1fr;padding:var(--pad);gap:20px;align-items:start}
+.tag{display:flex;gap:10px;align-items:center;font-weight:500;font-size:17px}.tag svg{width:20px;height:20px;opacity:.7}
+.head h2{font-size:clamp(40px,5.4vw,84px);max-width:11em}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.grid3>div{padding:var(--pad);border-right:1px solid var(--line)}.grid3>div:last-child{border:0}
+.cat-h{display:flex;justify-content:space-between;font-weight:600;font-size:21px;margin-bottom:28px}.cat-h span{color:var(--mut);font-weight:500;font-size:17px}
+.img{background-size:cover;background-position:center;position:relative;overflow:hidden}
+.cat .img{aspect-ratio:1/1.18}
+.i-desert{background:radial-gradient(circle at 18% 70%,#000 0 5px,transparent 6px),linear-gradient(180deg,#a8603c 0,#b9693a 38%,#c8782f 52%,#d98a2c 70%,#e69a2a 100%)}
+.i-desert:after{content:"";position:absolute;left:0;right:0;top:22%;height:26%;background:radial-gradient(60% 100% at 55% 100%,#6a3c26 0,transparent 70%)}
+.i-yoga{background:radial-gradient(28% 22% at 50% 38%,#d9a381 0,transparent 70%),radial-gradient(40% 40% at 50% 88%,#202428 0,transparent 80%),linear-gradient(180deg,#1b1b1c,#0a0b0c)}
+.i-juice{background:radial-gradient(34% 32% at 60% 60%,#1a7a22 0,transparent 70%),radial-gradient(30% 24% at 60% 14%,#7ac26a 0,transparent 70%),linear-gradient(180deg,#24421f,#143a18 60%,#6a5a3a)}
+/* about */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:var(--pad);padding:0 var(--pad) var(--pad)}
+.about .img{min-height:520px;background:radial-gradient(80% 40% at 50% 100%,#2e4a22 0,transparent 70%),linear-gradient(180deg,#f4c4c2 0,#e0a0a6 30%,#b97a7c 45%,#a8643c 70%,#6b4220 100%)}
+.about .txt{display:flex;flex-direction:column;justify-content:space-between;gap:30px}
+.about p.big{font-size:clamp(18px,1.6vw,24px);font-weight:500;line-height:1.2;text-indent:2.4em}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}.stats b{font-size:clamp(40px,4.4vw,68px);font-weight:600;letter-spacing:-.06em}
+.stats span{display:block;color:var(--mut)}
+.press{display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--mut);font-size:17px;font-weight:500}
+.press i{font-family:Georgia,serif;color:#fff;font-style:normal;font-size:20px;opacity:.85}
+/* featured */
+.feat-h{display:grid;grid-template-columns:1fr 1fr;padding:80px var(--pad) 50px;align-items:end;gap:20px}
+.feat-h h2{font-size:clamp(52px,7vw,110px)}.feat-h p{color:var(--mut);font-size:19px;font-weight:500;max-width:25em;padding-left:20px}
+.cards{display:grid;grid-template-columns:1fr 1fr}
+.card{display:grid;grid-template-columns:1fr 350px;gap:46px;padding:var(--pad);border-top:1px solid var(--line);border-right:1px solid var(--line)}
+.card:nth-child(2n){border-right:0}
+.card .l{display:flex;flex-direction:column}
+.card h3{font-size:clamp(26px,2.4vw,36px);letter-spacing:-.05em;line-height:1.05}
+.card .pr{margin-top:16px;color:var(--mut);font-size:19px;font-weight:500}.card .pr b{color:#fff;font-weight:600}
+.meta{margin-top:auto;padding-top:60px;display:grid;gap:12px;font-size:14.5px;font-weight:500}
+.meta div{display:flex;justify-content:space-between;align-items:center;gap:8px}.meta em{font-style:normal;color:var(--mut)}
+.meta .st{color:var(--ac);letter-spacing:2px;font-size:13px}.meta svg{width:16px;height:16px;opacity:.4}
+.btn{margin-top:22px;background:#0f2a36;border-radius:99px;padding:15px 22px;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:15px;transition:background .25s}
+.btn:hover{background:var(--ac);color:#0a1a22}
+.card .img{aspect-ratio:350/375}
+.c1{background:radial-gradient(18% 30% at 50% 56%,#b9a48a 0,transparent 80%),linear-gradient(180deg,#8fb0c8,#d7e3ec 50%,#e9eff3)}
+.c2{background:radial-gradient(70% 30% at 40% 90%,#4a6a1c 0,transparent 80%),linear-gradient(180deg,#e8c670,#d6a640 50%,#7b8a2a)}
+.c3{background:radial-gradient(50% 50% at 40% 55%,#f2dfc4 0,transparent 80%),linear-gradient(180deg,#9ed1e0,#cfe5ea)}
+.c4{background:radial-gradient(30% 30% at 55% 60%,#8a1c1c 0,transparent 80%),linear-gradient(180deg,#8a8a72,#d99a3a 55%,#7a4a1a)}
+.c5{background:radial-gradient(40% 24% at 55% 66%,#e6b21c 0,transparent 80%),linear-gradient(180deg,#8ab0e6,#d6cfa8 40%,#b5833a)}
+.c6{background:linear-gradient(90deg,#444 0 40%,#d8d4cc 40% 60%,#444 60%),linear-gradient(180deg,#888,#222)}
+/* combine */
+.combine{position:relative;margin-top:0;background:linear-gradient(180deg,rgba(10,26,34,0) 55%,var(--bg) 100%),radial-gradient(30% 22% at 70% 52%,#1b1b10 0,transparent 80%),linear-gradient(180deg,#9a6a2a,#8a5c24 30%,#b9822c 55%,#7a5622 78%,#3a3a24)}
+.combine h2{font-size:clamp(52px,7vw,110px);padding:80px var(--pad) 30px}
+.combine h4{font-size:clamp(44px,5vw,76px);font-weight:600;letter-spacing:-.06em;padding:0 var(--pad);line-height:1.02}.combine h4 s{color:rgba(255,255,255,.5);text-decoration:none;font-weight:500}
+.combine .sp{height:340px}
+.steps{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;border-top:1px solid var(--line);margin-top:0}
+.steps>div{padding:var(--pad);border-right:1px solid var(--line);min-height:340px;display:flex;flex-direction:column;justify-content:space-between}
+.steps>div:last-child{border:0}.steps b{font-size:54px;font-weight:600;letter-spacing:-.06em;display:block;line-height:1}.steps small{color:var(--mut);font-size:13px}
+.steps p{font-size:21px;font-weight:500;line-height:1.15}.steps h5{font-size:19px;font-weight:500;letter-spacing:-.03em}
+/* map */
+.map{position:relative;min-height:760px;overflow:hidden;border-top:1px solid var(--line)}
+.map .head{position:relative;z-index:2}
+.map p{font-size:clamp(18px,1.7vw,24px);font-weight:500;margin-top:30px;max-width:24em;line-height:1.2}
+.map svg.dots{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.mp{position:absolute;left:0;top:220px;width:100%;height:540px}
+/* how */
+.how{padding:100px var(--pad)}
+.how-t{display:grid;grid-template-columns:1fr 1fr;align-items:start;margin-bottom:70px}.how-t p{color:var(--mut);font-size:19px;font-weight:500;max-width:20em;padding-left:20px}.how-t h2{font-size:clamp(48px,5.6vw,88px)}
+.how-g{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.how-g svg{width:62px;height:62px;stroke:#fff;fill:none;stroke-width:1.6}.how-g .n{font-size:12px;color:var(--mut);font-weight:600;vertical-align:top}
+.how-g h3{font-size:19px;font-weight:600;letter-spacing:-.03em;margin:150px 0 14px;line-height:1.2}.how-g p{color:var(--mut);font-size:18px;font-weight:500;max-width:11em;line-height:1.2}
+/* coaches */
+.co{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.co-g{display:grid;grid-template-columns:1fr 1fr;border-right:1px solid var(--line)}
+.co-g>div{padding:var(--pad);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.co-g>div:nth-child(2n){border-right:0}.co-g>div:nth-last-child(-n+2){border-bottom:0}
+.co-g .img{aspect-ratio:1/1.15;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;font-weight:600;font-size:21px;letter-spacing:-.04em}.co-g .img small{font-size:15px;font-weight:500;letter-spacing:-.02em}
+.p1{background:radial-gradient(18% 18% at 62% 22%,#d9a888 0,transparent 80%),linear-gradient(180deg,#e8b894,#a0764e 55%,#4a3220)}
+.p2{background:radial-gradient(18% 20% at 50% 22%,#d8a888 0,transparent 80%),radial-gradient(40% 40% at 50% 62%,#b8421c 0,transparent 80%),linear-gradient(180deg,#a8602a,#7a4a1a 60%,#3a2410)}
+.p3{background:radial-gradient(22% 22% at 50% 28%,#e0b090 0,transparent 80%),linear-gradient(180deg,#3a4a2a,#2a2a1c 60%,#14140c)}
+.p4{background:radial-gradient(18% 20% at 50% 26%,#d8a888 0,transparent 80%),linear-gradient(180deg,#8a94a8,#c9a070 50%,#3a2c1a)}
+.co-g .img:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.65));z-index:0}.co-g .img>*{position:relative;z-index:1}
+.co-r{padding:var(--pad);display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.co-r h2{font-size:clamp(44px,5vw,78px);margin-top:26px}
+.co-r .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:150px}.co-r .two b{font-size:30px;font-weight:300;display:block;margin-bottom:210px}
+.co-r h6{font-size:18px;font-weight:500;margin-bottom:14px}.co-r .two span{display:block;color:var(--mut);font-size:17px;line-height:1.3}.co-r .two p{font-size:22px;font-weight:500;line-height:1.15;align-self:end}
+.banner{margin:100px var(--pad) 0;height:390px;background:radial-gradient(18% 14% at 28% 72%,#e8dcc6 0,transparent 80%),radial-gradient(60% 50% at 20% 25%,#b87a20 0,transparent 80%),linear-gradient(180deg,#6f7a86 0,#3a4a3a 35%,#1c2a1c 60%,#0e1a12 100%)}
+/* footer */
+footer{padding:70px var(--pad) 0}
+.ft{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:start;padding-bottom:90px}
+.ft h4{font-size:clamp(44px,4.6vw,70px);font-weight:600;letter-spacing:-.06em;line-height:1.02}.ft h4 s{text-decoration:none;color:var(--mut);font-weight:500}
+.ft a.c{display:block;font-size:20px;font-weight:500;margin-bottom:14px}
+.bar{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin:0 calc(var(--pad) * -1);padding:0 var(--pad);font-size:15px;font-weight:500;color:rgba(255,255,255,.85)}
+.bar>div{padding:34px 0}.bar .m{border-left:1px solid var(--line);flex:1;margin-left:48px;padding-left:46px}.bar .a a{margin-left:26px}
+/* reveal */
+.rv{opacity:0;transform:translateY(40px) scale(.97);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+/* responsive */
+@media(max-width:1000px){
+.nav-r a:not(.ex){display:none}.nav-r .ex{margin-left:0}
+.head,.feat-h,.how-t,.about,.co,.ft{grid-template-columns:1fr}
+.feat-h p,.how-t p{padding-left:0}.grid3,.cards,.how-g{grid-template-columns:1fr}.grid3>div{border-right:0;border-bottom:1px solid var(--line)}
+.card{grid-template-columns:1fr;border-right:0}.card .img{order:-1}
+.steps{grid-template-columns:1fr 1fr}.steps>div{min-height:200px}.steps>div:first-child{grid-column:1/-1;min-height:0}
+.how-g h3{margin-top:30px}.co-g{border-right:0}.co-r .two{margin-top:40px}.co-r .two b{margin-bottom:40px}
+.ft{gap:30px;padding-bottom:50px}.bar{flex-direction:column}.bar .m{border:0;margin:0;padding:0 0 20px}.bar>div{padding:20px 0 0}.bar .a a{margin:0 20px 0 0}
+.press{flex-wrap:wrap}.hero h1{font-size:34vw}.combine .sp{height:160px}.map{min-height:620px}
+}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute"><symbol id="st" viewBox="0 0 24 24"><g stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7"/></g></symbol></svg>
+<nav>
+ <a class="logo" href="#top"><svg><use href="#st"/></svg>Solace Travels</a>
+ <div class="nav-r"><a href="#retreats" class="on">Retreats</a><a href="#coaches">Coaches</a><a href="#contacts">Contacts</a><a class="ex" href="#featured">Explore</a></div>
+</nav>
+
+<header class="hero" id="top">
+ <h1>Travel</h1>
+ <p>With purpose. Book retreats, active tours, and boutique stays in one place.</p>
+ <a class="pill" href="#featured">Explore Retreats <i class="sq"></i></a>
+</header>
+
+<section class="sec" id="retreats">
+ <div class="head rv"><div class="tag"><svg><use href="#st"/></svg>Retreats</div><h2>We've vetted retreats in more than 100 countries. See for yourself</h2></div>
+ <div class="grid3 cat">
+  <div class="rv"><div class="cat-h">Introvert Retreats<span>/ 78+ Countries</span></div><div class="img i-desert"></div></div>
+  <div class="rv"><div class="cat-h">Yoga Retreats<span>/ 89+ Countries</span></div><div class="img i-yoga"></div></div>
+  <div class="rv"><div class="cat-h">Detox<span>/ 56+ Countries</span></div><div class="img i-juice"></div></div>
+ </div>
+</section>
+
+<section class="sec" id="about" style="margin-top:0">
+ <div class="head rv" style="padding-top:110px"><div class="tag"><svg><use href="#st"/></svg>About Us</div><h2>Not just trips, experiences that nurture body and soul</h2></div>
+ <div class="about rv">
+  <div class="img"></div>
+  <div class="txt">
+   <p class="big">Solace Travels is a premium wellness travel marketplace that blends the ease of booking with the feel of an editorial magazine. Discover curated programs, match them with exceptional stays, and book seamlessly.</p>
+   <div class="stats"><div><b>100+</b><span>Countries</span></div><div><b>1,472+</b><span>Happy guests</span></div></div>
+   <div class="press"><span style="max-width:15em">Trusted by travelers looking for more than ordinary vacations.</span><i>Yogi Journal</i><i>Wanderer</i><i>Daily News</i></div>
+  </div>
+ </div>
+</section>
+
+<section id="featured">
+ <div class="feat-h rv"><h2>Featured Retreats</h2><p>Discover unique locations, engaging activities, and expert-led workshops designed to inspire and refresh your spirit.</p></div>
+ <div class="cards" id="cards"></div>
+</section>
+
+<section class="combine" id="combine">
+ <h2 class="rv">Combine Retreat</h2>
+ <h4 class="rv"><s>+</s>Stay<br><s>+</s>Transfers<br><s>+</s>Extras</h4>
+ <div class="sp"></div>
+ <div class="steps rv">
+  <div><p>Combine your retreat into one seamless checkout. Instant confirmations where available, or concierge support for bespoke itineraries.</p></div>
+  <div><span><b>01</b><small>Step</small></span><h5>Choose Retreat</h5></div>
+  <div><span><b>02</b><small>Step</small></span><h5>Match Boutique Stay</h5></div>
+  <div><span><b>03</b><small>Step</small></span><h5>Add Transfers &amp; Extras</h5></div>
+  <div><span><b>04</b><small>Step</small></span><h5>Secure Payment</h5></div>
+ </div>
+</section>
+
+<section class="map" id="map">
+ <svg class="mp" viewBox="0 0 1000 540" preserveAspectRatio="xMidYMid slice" aria-hidden="true" id="mapsvg"></svg>
+ <div class="head rv"><div class="tag"><svg><use href="#st"/></svg>Country</div>
+  <div><h2>Explore by Destination</h2><p>Discover your next adventure! Choose from stunning destinations across Europe with 289 options, vibrant Asia with 90 experiences, and the diverse USA featuring 180 unique locations.</p></div></div>
+</section>
+
+<section class="how" id="how">
+ <div class="how-t rv"><h2>How Solace Works</h2><p>Browse certified experts with verified credentials and guest testimonials.</p></div>
+ <div class="how-g rv">
+  <div><svg viewBox="0 0 64 64"><path d="M6 58h12V46h12V34h12V22h14M44 22V6l14 5-14 5M10 58V46M24 46V34"/><circle cx="46" cy="14" r="0"/></svg><span class="n"> 01</span><h3>Tell us your goals</h3><p>Trusted by travelers looking for more than ordinary vacations.</p></div>
+  <div><svg viewBox="0 0 64 64"><path d="M8 24h12c-6-10 12-10 6 0h14v12c10-6 10 12 0 6v14H26c6-10-12-10-6 0H8z"/></svg><span class="n"> 02</span><h3>Get curated matches</h3><p>We recommend retreats and stays that fit.</p></div>
+  <div><svg viewBox="0 0 64 64"><rect x="6" y="8" width="42" height="40" rx="3"/><path d="M6 18h42M14 28h14M14 36h20M40 40l6 14 3-6 7-3z"/></svg><span class="n"> 03</span><h3>Customize your package</h3><p>Add transfers, spa, and extras in one checkout.</p></div>
+  <div><svg viewBox="0 0 64 64"><path d="M56 8L40 24 12 18l-4 4 22 10-8 10-12-2-3 3 12 6 6 12 3-3-2-12 10-8 10 22 4-4-6-28 16-16c2-4 0-6-4-4z"/></svg><span class="n"> 04</span><h3>Travel &amp; track progress</h3><p>Use the Solace Journal to reflect and rebook.</p></div>
+ </div>
+</section>
+
+<section class="co" id="coaches">
+ <div class="co-g rv">
+  <div><div class="img p1"><span>Lauren Thompson</span><small>Yoga Coach</small></div></div>
+  <div><div class="img p2"><span>Michael Wilson</span><small>Meditation Coach</small></div></div>
+  <div><div class="img p3"><span>Sarah Johnson</span><small>Nutrition Specialist</small></div></div>
+  <div><div class="img p4"><span>Isabelle Martin</span><small>Stress-Relief Guide</small></div></div>
+ </div>
+ <div class="co-r rv">
+  <div><div class="tag"><svg><use href="#st"/></svg>Practitioners &amp; Coaches</div><h2>The 200+ faces behind Solace Travels</h2></div>
+  <div class="two"><div><b>+</b><h6>Your Retreat, Our Experts</h6><span>Each coach is carefully selected to deliver the highest quality guidance in yoga, meditation, fitness, and holistic well-being.</span></div>
+  <div style="display:flex;flex-direction:column"><b>+</b><p>At Solace Travels we've brought together a global network of 200+ certified coaches, practitioners, and wellness experts.</p></div></div>
+ </div>
+</section>
+
+<div class="banner rv"></div>
+
+<footer id="contacts">
+ <div class="ft rv">
+  <a class="logo" href="#top" style="border:0;padding:0"><svg><use href="#st"/></svg>Solace Travels</a>
+  <h4><a href="#coaches"><s>+</s>Coaches</a><br><a href="#contacts"><s>+</s>Contacts</a></h4>
+  <div><a class="c" href="tel:+10123456789">+1 012 345 6789</a><a class="c" href="mailto:hello@solace-travels.example">hello@solace-travels.example</a></div>
+ </div>
+ <div class="bar"><div>©All Rights Reserved. Solace Travels, 2026</div><div class="m">Designed with Claude</div><div class="a"><a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a></div></div>
+</footer>
+
+<script>
+const R=[["7 Day Mystic Mountain Retreat in Romania","$1,000","Gura Humorului, Romania","Feb 15 - 21, 2026 <em>(7 days, 6 nights)</em>","12 guests","190+","c1"],
+["Yoga & Outdoor Retreat in Tuscany, Italy","$1,328","Province of Grosseto, Tuscany, Italy","Jan 15 - 21, 2026 <em>(7 days, 6 nights)</em>","6 guests","125+","c2"],
+["Photography Retreat & Tour in Magical Morocco","$5,575","Morocco","March 06 - 20, 2026 <em>(15 days, 14 nights)</em>","18 guests","312+","c3"],
+["Morocco Holiday & Desert Moon","$3,829","Marrakesh, Marrakesh-Safi, Morocco","April 12 - 20, 2026 <em>(8 days, 7 nights)</em>","6 guests","412+","c4"],
+["8 Day Juice Detox Retreat in Portugal","$1,294","Portugal","Feb 06 - 14, 2026 <em>(8 days, 7 nights)</em>","12 guests","112+","c5"],
+["7 Day Solo Travelers Retreat: Bali","$406","Ubud, Bali, Indonesia","Jan | Feb | Mar | Apr | May <em>(7 days, 6 nights)</em>","Solo","287+","c6"]];
+const ic='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><circle cx="8" cy="7" r="3"/><path d="M8 15s5-4 5-8a5 5 0 0 0-10 0c0 4 5 8 5 8z"/></svg>';
+document.getElementById('cards').innerHTML=R.map(r=>`<article class="card rv"><div class="l"><h3>${r[0]}</h3><div class="pr">from <b>${r[1]}</b></div>
+<div class="meta"><div>${r[2]}${ic}</div><div><span>${r[3]}</span>${ic}</div><div>${r[4]}${ic}</div><div><span>Trusted by ${r[5]} <em>clients worldwide</em></span><span class="st">★★★★★</span></div></div>
+<a class="btn" href="#">Explore Retreat <i class="sq"></i></a></div><div class="img ${r[6]}"></div></article>`).join('');
+// stylised dotted world map
+try{const s=document.getElementById('mapsvg');let h='';
+const land=[[40,60,300,200],[150,230,200,200],[430,70,200,130],[470,190,150,220],[560,70,380,200],[700,230,150,100]];
+land.forEach(([x,y,w,hh])=>{for(let i=x;i<x+w;i+=14)for(let j=y;j<y+hh;j+=14){h+=`<circle cx="${i}" cy="${j}" r="1.6" fill="#fff" opacity=".05"/>`}});
+[[40,100,5],[395,120,5],[440,130,4],[430,165,5],[395,165,6],[470,180,3],[500,160,3],[512,200,3],[390,250,4],[445,235,6],[860,250,6],[285,235,4],[455,135,3]].forEach(([x,y,r])=>{h+=`<circle cx="${x*1}" cy="${y*1}" r="${r*4}" fill="#f5a02b" opacity=".12"/><circle cx="${x}" cy="${y}" r="${r}" fill="#f5a02b"/>`});
+s.innerHTML=h}catch(e){}
+// pop-up reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body></html>
