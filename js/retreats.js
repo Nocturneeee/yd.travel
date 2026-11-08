@@ -1,10 +1,10 @@
 const R = [
-  ["7 Day Mystic Mountain Retreat in Romania", "$1,000", "Gura Humorului, Romania", "Feb 15 - 21, 2026 <em>(7 days, 6 nights)</em>", "12 guests", "190+", "c1"],
-  ["Yoga & Outdoor Retreat in Tuscany, Italy", "$1,328", "Province of Grosseto, Tuscany, Italy", "Jan 15 - 21, 2026 <em>(7 days, 6 nights)</em>", "6 guests", "125+", "c2"],
-  ["Photography Retreat & Tour in Magical Morocco", "$5,575", "Morocco", "March 06 - 20, 2026 <em>(15 days, 14 nights)</em>", "18 guests", "312+", "c3"],
-  ["Morocco Holiday & Desert Moon", "$3,829", "Marrakesh, Marrakesh-Safi, Morocco", "April 12 - 20, 2026 <em>(8 days, 7 nights)</em>", "6 guests", "412+", "c4"],
-  ["8 Day Juice Detox Retreat in Portugal", "$1,294", "Portugal", "Feb 06 - 14, 2026 <em>(8 days, 7 nights)</em>", "12 guests", "112+", "c5"],
-  ["7 Day Solo Travelers Retreat: Bali", "$406", "Ubud, Bali, Indonesia", "Jan | Feb | Mar | Apr | May <em>(7 days, 6 nights)</em>", "Solo", "287+", "c6"]
+  ["7 Day Ubud Spiritual & Wellness Retreat", "Rp 15.500.000", "Ubud, Bali, Indonesia", "Feb 15 - 21, 2026 <em>(7 days, 6 nights)</em>", "12 guests", "190+", "c1"],
+  ["Yoga & Holistic Healing Retreat", "Rp 18.200.000", "Seminyak, Bali, Indonesia", "Jan 15 - 21, 2026 <em>(7 days, 6 nights)</em>", "6 guests", "125+", "c2"],
+  ["Deep Nature & Jungle Photography Tour", "Rp 45.000.000", "Uluwatu, Bali, Indonesia", "March 06 - 20, 2026 <em>(15 days, 14 nights)</em>", "18 guests", "312+", "c3"],
+  ["Mount Bromo Sunrise Holiday & Escape", "Rp 28.500.000", "Malang, East Java, Indonesia", "April 12 - 20, 2026 <em>(8 days, 7 nights)</em>", "6 guests", "412+", "c4"],
+  ["8 Day Detox & Ayurveda Retreat", "Rp 16.800.000", "Lombok, West Nusa Tenggara, Indonesia", "Feb 06 - 14, 2026 <em>(8 days, 7 nights)</em>", "12 guests", "112+", "c5"],
+  ["7 Day Solo Travelers Island Retreat", "Rp 6.500.000", "Ubud, Bali, Indonesia", "Jan | Feb | Mar | Apr | May <em>(7 days, 6 nights)</em>", "Solo", "287+", "c6"]
 ];
 
 const ic = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><circle cx="8" cy="7" r="3"/><path d="M8 15s5-4 5-8a5 5 0 0 0-10 0c0 4 5 8 5 8z"/></svg>';

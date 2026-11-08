@@ -227,25 +227,7 @@ footer{padding:70px var(--pad) 0}
  <div class="bar"><div>©All Rights Reserved. yd.travel, 2026</div><div class="m">Designed with Claude</div><div class="a"><a href="#">Terms and Conditions</a><a href="#">Privacy Policy</a></div></div>
 </footer>
 
-<script>
-const R=[["7 Day Mystic Mountain Retreat in Romania","$1,000","Gura Humorului, Romania","Feb 15 - 21, 2026 <em>(7 days, 6 nights)</em>","12 guests","190+","c1"],
-["Yoga & Outdoor Retreat in Tuscany, Italy","$1,328","Province of Grosseto, Tuscany, Italy","Jan 15 - 21, 2026 <em>(7 days, 6 nights)</em>","6 guests","125+","c2"],
-["Photography Retreat & Tour in Magical Morocco","$5,575","Morocco","March 06 - 20, 2026 <em>(15 days, 14 nights)</em>","18 guests","312+","c3"],
-["Morocco Holiday & Desert Moon","$3,829","Marrakesh, Marrakesh-Safi, Morocco","April 12 - 20, 2026 <em>(8 days, 7 nights)</em>","6 guests","412+","c4"],
-["8 Day Juice Detox Retreat in Portugal","$1,294","Portugal","Feb 06 - 14, 2026 <em>(8 days, 7 nights)</em>","12 guests","112+","c5"],
-["7 Day Solo Travelers Retreat: Bali","$406","Ubud, Bali, Indonesia","Jan | Feb | Mar | Apr | May <em>(7 days, 6 nights)</em>","Solo","287+","c6"]];
-const ic='<svg viewBox="0 0 16 16" fill="none" stroke="currentColor"><circle cx="8" cy="7" r="3"/><path d="M8 15s5-4 5-8a5 5 0 0 0-10 0c0 4 5 8 5 8z"/></svg>';
-document.getElementById('cards').innerHTML=R.map(r=>`<article class="card rv"><div class="l"><h3>${r[0]}</h3><div class="pr">from <b>${r[1]}</b></div>
-<div class="meta"><div>${r[2]}${ic}</div><div><span>${r[3]}</span>${ic}</div><div>${r[4]}${ic}</div><div><span>Trusted by ${r[5]} <em>clients worldwide</em></span><span class="st">★★★★★</span></div></div>
-<a class="btn" href="#">Explore Retreat <i class="sq"></i></a></div><div class="img ${r[6]}"></div></article>`).join('');
-// stylised dotted world map
-try{const s=document.getElementById('mapsvg');let h='';
-const land=[[40,60,300,200],[150,230,200,200],[430,70,200,130],[470,190,150,220],[560,70,380,200],[700,230,150,100]];
-land.forEach(([x,y,w,hh])=>{for(let i=x;i<x+w;i+=14)for(let j=y;j<y+hh;j+=14){h+=`<circle cx="${i}" cy="${j}" r="1.6" fill="#fff" opacity=".05"/>`}});
-[[40,100,5],[395,120,5],[440,130,4],[430,165,5],[395,165,6],[470,180,3],[500,160,3],[512,200,3],[390,250,4],[445,235,6],[860,250,6],[285,235,4],[455,135,3]].forEach(([x,y,r])=>{h+=`<circle cx="${x*1}" cy="${y*1}" r="${r*4}" fill="#f5a02b" opacity=".12"/><circle cx="${x}" cy="${y}" r="${r}" fill="#f5a02b"/>`});
-s.innerHTML=h}catch(e){}
-// pop-up reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-</script>
+<script src="js/retreats.js"></script>
+<script src="js/map.js"></script>
+<script src="js/main.js"></script>
 </body></html>
