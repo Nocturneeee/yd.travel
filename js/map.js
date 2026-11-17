@@ -1,26 +1,60 @@
-// Stylised dotted world map
+// Stylised vector map of Indonesia with active service location dots matching the catalog
 try {
   const s = document.getElementById('mapsvg');
   if (s) {
-    let h = '';
-    const land = [
-      [40, 60, 300, 200],
-      [150, 230, 200, 200],
-      [430, 70, 200, 130],
-      [470, 190, 150, 220],
-      [560, 70, 380, 200],
-      [700, 230, 150, 100]
-    ];
-    land.forEach(([x, y, w, hh]) => {
-      for (let i = x; i < x + w; i += 14) {
-        for (let j = y; j < y + hh; j += 14) {
-          h += `<circle cx="${i}" cy="${j}" r="1.6" fill="#fff" opacity=".05"/>`;
-        }
-      }
-    });
-    [[40, 100, 5], [395, 120, 5], [440, 130, 4], [430, 165, 5], [395, 165, 6], [470, 180, 3], [500, 160, 3], [512, 200, 3], [390, 250, 4], [445, 235, 6], [860, 250, 6], [285, 235, 4], [455, 135, 3]].forEach(([x, y, r]) => {
-      h += `<circle cx="${x * 1}" cy="${y * 1}" r="${r * 4}" fill="#f5a02b" opacity=".12"/><circle cx="${x}" cy="${y}" r="${r}" fill="#f5a02b"/>`;
-    });
-    s.innerHTML = h;
+    // Fetch cleaned SVG paths of Indonesia provinces from public asset CDN
+    fetch('https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/indonesia.svg')
+      .then(res => res.text())
+      .then(xmlString => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(xmlString, 'image/svg+xml');
+        const features = doc.getElementById('features');
+        if (!features) return;
+
+        // Extract path elements
+        const paths = Array.from(features.querySelectorAll('path'));
+        let mapContent = '<g class="id-land" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round">';
+        paths.forEach(p => {
+          mapContent += `<path d="${p.getAttribute('d')}" name="${p.getAttribute('name') || ''}"/>`;
+        });
+        mapContent += '</g>';
+
+        // Catalog-specific active service locations:
+        // 1. Ubud, Bali
+        // 2. Seminyak, Bali
+        // 3. Uluwatu, Bali
+        // 4. Malang / Mt Bromo, East Java
+        // 5. Lombok, West Nusa Tenggara
+        const catalogDots = [
+          [682, 427, "Ubud, Bali"],
+          [680, 431, "Seminyak, Bali"],
+          [679, 433, "Uluwatu, Bali"],
+          [638, 418, "Malang & Mt Bromo, East Java"],
+          [712, 432, "Lombok, West Nusa Tenggara"]
+        ];
+
+        let dotsContent = '<g class="id-dots">';
+        catalogDots.forEach(([x, y, label]) => {
+          // Glow outer ring + pulsing dot + tooltip title
+          dotsContent += `
+            <g class="dot-group">
+              <circle cx="${x}" cy="${y}" r="10" fill="#f5a02b" opacity="0.25">
+                <animate attributeName="r" values="7;14;7" dur="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.35;0.1;0.35" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="${x}" cy="${y}" r="4" fill="#f5a02b" stroke="#ffffff" stroke-width="0.8">
+                <title>${label}</title>
+              </circle>
+            </g>`;
+        });
+        dotsContent += '</g>';
+
+        s.innerHTML = mapContent + dotsContent;
+      })
+      .catch(err => {
+        console.error('Failed to load Indonesia vector map:', err);
+      });
   }
-} catch (e) {}
+} catch (e) {
+  console.error(e);
+}
