@@ -29,8 +29,8 @@ try {
           [700, 520, "Ubud, Bali"],
           [705, 518, "Seminyak, Bali"],
           [710, 516, "Uluwatu, Bali"],
-          [745, 550, "Malang & Mt Bromo, East Java"],
-          [685, 540, "Lombok, West Nusa Tenggara"]
+          [640, 500, "Malang & Mt Bromo, East Java"],
+          [800, 510, "Lombok, West Nusa Tenggara"]
         ];
 
         let dotsContent = '<g class="id-dots">';
