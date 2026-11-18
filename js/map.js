@@ -26,11 +26,11 @@ try {
         // 4. Malang / Mt Bromo, East Java
         // 5. Lombok, West Nusa Tenggara
         const catalogDots = [
-          [682, 427, "Ubud, Bali"],
-          [680, 431, "Seminyak, Bali"],
-          [679, 433, "Uluwatu, Bali"],
-          [638, 418, "Malang & Mt Bromo, East Java"],
-          [712, 432, "Lombok, West Nusa Tenggara"]
+          [700, 520, "Ubud, Bali"],
+          [705, 518, "Seminyak, Bali"],
+          [710, 516, "Uluwatu, Bali"],
+          [745, 550, "Malang & Mt Bromo, East Java"],
+          [685, 540, "Lombok, West Nusa Tenggara"]
         ];
 
         let dotsContent = '<g class="id-dots">';
